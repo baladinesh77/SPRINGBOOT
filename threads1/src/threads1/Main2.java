@@ -5,7 +5,8 @@ import java.util.Stack;
 public class Main2 {
 
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<>();
+		
+		MyStack stack = new MyStack( new Stack<Integer>());
 		//TWO Generator using SAME stack
 		Generator g1 = new Generator(stack);
 		Generator g2 = new Generator(stack);
@@ -19,7 +20,7 @@ public class Main2 {
 		t2.join();
 		
 		//List all data
-		for(int n : stack) {
+		for(int n : stack.getStack()) {
 			System.out.println(n);
 		}
 		

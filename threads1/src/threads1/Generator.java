@@ -4,9 +4,9 @@ import java.util.Stack;
 
 public class Generator implements Runnable {
 
-	private Stack<Integer> stack;
+	private volatile MyStack stack;
 	
-	public Generator(Stack<Integer> stack) {
+	public Generator(MyStack stack) {
 		super();
 		this.stack = stack;
 	}
@@ -15,16 +15,10 @@ public class Generator implements Runnable {
 	@Override
 	public void run() {
 		
-		synchronized (stack) {
-		
 			for(int i=0;i<10 ;i++) {
 				stack.push(i);
-				try {
-				Thread.sleep(100);
-				}catch(InterruptedException ex) {}
+				
 			}
-			System.out.println("Numbers Generated!");
-		}
-	}
+			}
 
 }
