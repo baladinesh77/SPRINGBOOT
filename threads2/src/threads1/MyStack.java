@@ -14,16 +14,28 @@ public class MyStack {
 		delay();
 		stack.push(n);
 		delay();
+		this.notifyAll();
 		System.out.println(Thread.currentThread().getName()+" Added "+n);
 	}
 	
-	private void delay() {
-	try {
-		Thread.sleep(100);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	public boolean isEmpty() {
+		return stack.isEmpty();
 	}
+	
+	public synchronized void pop() {
+		try {
+			this.wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(Thread.currentThread().getName()+"Deleting ");
+		int n = stack.pop();
+		System.out.println(Thread.currentThread().getName()+ "Deleted "+n);
+	}
+	
+	private void delay() {
+
 	}
 	
 	public Stack<Integer> getStack(){

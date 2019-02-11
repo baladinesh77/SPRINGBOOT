@@ -16,8 +16,8 @@ public class Generator implements Runnable {
 	public void run() {
 		
 			for(int i=0;i<10 ;i++) {
-				stack.push(i);
-				
+			
+					stack.push(i);	
 			}
 			}
 
