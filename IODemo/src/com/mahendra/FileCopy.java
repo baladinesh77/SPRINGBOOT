@@ -2,6 +2,8 @@ package com.mahendra;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class FileCopy implements Runnable {
 
@@ -27,24 +29,11 @@ public class FileCopy implements Runnable {
 			System.out.println("Source file doesnot exists!");
 			return;
 		}
-		//TRY-WITH_RESOURCE since JDK7
-		try(FileInputStream  in  = new FileInputStream(sourceFile)){
-			try(FileOutputStream out = new FileOutputStream(destinationFile)){
-				//Read first 100 bytes
-				int len = in.read(buffer);
-				while(len>0) {
-				//Write all bytes from buffer
-				//Buffer size is 100, but it may container lesser
-				out.write(buffer,0,len);
-				len = in.read(buffer);
-				}
-				out.flush();
-			}catch(IOException ex1) {
-				System.out.println("Error : "+ex1.getMessage());
-			}
-		}catch(IOException ex) {
-			System.out.println("Error: "+ex.getMessage());
-		}
+		try {
+		Files.copy(Paths.get(sourceFile),
+					Paths.get(destinationFile),
+					StandardCopyOption.REPLACE_EXISTING);
+		}catch(IOException ex) {}
 		System.out.println("File copy completed!");
 	}
 

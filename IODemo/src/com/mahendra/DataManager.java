@@ -13,6 +13,7 @@ public class DataManager {
 			while(line!=null) {
 				Employee e = DataManager.toObject(line);
 				line = br.readLine();
+				emps.add(e);
 			}
 		}catch(IOException ex) {
 			System.out.println(ex.getMessage());
@@ -21,9 +22,18 @@ public class DataManager {
 	}
 	public static void save(String filename, List<Employee> emps) {
 		//Open BufferedWriter for given file
-		//For EACH e IN emps
-		//Convert e into String using "toString"
-		//And Write it to BufferedWriter
+		try(BufferedWriter wr = new BufferedWriter(new FileWriter(filename))){
+			//For EACH e IN emps
+			for(Employee e : emps) {	
+				//Convert e into String using "toString"
+				String line = toString(e);
+				//And Write it to BufferedWriter
+				wr.write(line);
+			}
+			wr.flush();
+		}catch(IOException ex) {
+			System.out.println(ex.getMessage());
+		}
 		
 	}
 	
