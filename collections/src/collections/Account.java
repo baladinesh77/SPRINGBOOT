@@ -4,6 +4,17 @@ public class Account implements Comparable<Account>{
 	private String accNo;
 	private String customer;
 	private double balance;
+	
+	public static void show() {
+		System.out.println("Account Object!");
+	}
+	
+	@Override
+	public String toString() {
+		return "Account [accNo=" + accNo + ", customer=" + customer + ", balance=" + balance + "]";
+	}
+	
+	
 	@Override
 	public int compareTo(Account target) {		
 		return this.accNo.compareTo(target.accNo);
