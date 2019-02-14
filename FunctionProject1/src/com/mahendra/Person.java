@@ -35,4 +35,12 @@ public class Person {
 	public void print(Function<Person, String> function) {
 		System.out.println(function.apply(this));
 	}
+
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", middleName=" + middleName + "]";
+	}
+	
+	
 }
