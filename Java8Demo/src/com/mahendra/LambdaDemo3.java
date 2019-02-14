@@ -1,6 +1,8 @@
 package com.mahendra;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class LambdaDemo3 {
 
@@ -28,6 +30,13 @@ public class LambdaDemo3 {
 		for(Product p: products) {
 			System.out.println(p.getId()+" "+p.getName()+" "+p.getPrice());
 		}
+		
+		List<Product> list = Arrays.asList(products);
+		Collections.sort(list,(s1,s2)->{return (int)(s1.getPrice()-s2.getPrice());});
+		for(Product p: list) {
+			System.out.println(p.getPrice());
+		}
+		
 	}
 
 }
