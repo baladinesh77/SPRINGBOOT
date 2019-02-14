@@ -1,5 +1,8 @@
 package com.mahendra;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 public class Person {
 	private String firstName, lastName, middleName;
 	
@@ -25,8 +28,11 @@ public class Person {
 		return middleName;
 	}
 
-
-	public void print(NameFormatter formatter) {
-		System.out.println(formatter.format(this));
+	public void print(Consumer<Person> consumer) {
+		consumer.accept(this);
+	}
+	//--EXEC(2)
+	public void print(Function<Person, String> function) {
+		System.out.println(function.apply(this));
 	}
 }
