@@ -19,6 +19,7 @@ public class Main1 {
 		
 		List<Account> acc2 = dao.findBalanceBelow(50000);
 		acc2.forEach(System.out::println);
+		
 	}
 
 }

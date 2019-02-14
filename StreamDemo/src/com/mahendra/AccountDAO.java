@@ -27,5 +27,11 @@ public List<Account> findBalanceBelow(double amt){
 			.collect(Collectors.toList());
 }
 
+public List<String> findCustomerWithBalanceBelow(double amt) {
+	return accounts.parallelStream()
+			.filter((x)->x.getBalance()<amt)
+			.map((x)->x.getCustomer())
+			.collect(Collectors.toList());			
+}
 
 }
