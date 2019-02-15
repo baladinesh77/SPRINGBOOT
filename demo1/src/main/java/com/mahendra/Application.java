@@ -9,6 +9,8 @@ public class Application {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		Greeter greet=context.getBean(Greeter.class);
 		greet.greet("Mahendra");
+		Greeter greet2=context.getBean(Greeter.class);
+		System.out.println(greet==greet2);
 	}
 
 }
