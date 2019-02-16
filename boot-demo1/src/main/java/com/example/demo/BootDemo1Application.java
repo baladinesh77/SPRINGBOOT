@@ -14,10 +14,5 @@ public class BootDemo1Application {
 		SpringApplication.run(BootDemo1Application.class, args);
 	}
 
-	@Bean
-	public ViewResolver resolver() {
-		ViewResolver view = new InternalResourceViewResolver("WEB-INF/pages/", ".jsp");
-		return view;
-	}
 }
 

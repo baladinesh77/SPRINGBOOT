@@ -8,5 +8,6 @@
 </head>
 <body>
 <h2>Contact US</h2>
+<p>Inside WEB-INF</p>
 </body>
 </html>
