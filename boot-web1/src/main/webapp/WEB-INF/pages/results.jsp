@@ -12,7 +12,9 @@
 	<h3>Error : ${error}</h3>
 </c:if>
 <c:forEach var="c" items="${results}">
-	${c.firstName } ${c.lastName } ${c.phoneNo }<br/>
+	${c.firstName } ${c.lastName } ${c.phoneNo }
+	<a href="edit?email=${c.email}">Edit</a>
+	<br/>
 </c:forEach>
 </body>
 </html>

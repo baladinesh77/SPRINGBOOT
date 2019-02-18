@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>Editing customer</h2>
-<s:form method="post" modelAttribute="customer">
+<s:form action="edit" method="post" modelAttribute="customer">
 	Name : <s:input path="firstName"/>
 	<s:input path="lastName"/>	<br/>
 	Phone : <s:input path="phoneNo"/><br/>

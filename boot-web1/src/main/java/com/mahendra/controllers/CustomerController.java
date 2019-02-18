@@ -60,6 +60,7 @@ public class CustomerController {
 	
 	@PostMapping("/edit")
 	public String saveChanges(@ModelAttribute Customer customer) {
+		System.out.println("Searching for email: "+customer.getEmail());
 		service.update(customer);
 		return "redirect:/";
 	}
