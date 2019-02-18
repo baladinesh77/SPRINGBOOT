@@ -1,0 +1,79 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerServiceEndpointService WSDL service -->
+
+  <service name="CustomerServiceEndpoint" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://endpoints.mahendra.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerServiceEndpointService"/>
+      <parameter name="schemaQualified" value="http://endpoints.mahendra.com,http://models.mahendra.com"/>
+      <parameter name="wsdlServicePort" value="CustomerServiceEndpoint"/>
+      <parameter name="className" value="com.mahendra.endpoints.CustomerServiceEndpointSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CustomerServiceEndpoint"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="findByName" qname="operNS:findByName" xmlns:operNS="http://endpoints.mahendra.com" returnQName="retNS:findByNameReturn" xmlns:retNS="http://endpoints.mahendra.com" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://endpoints.mahendra.com" returnItemQName="tns:item" xmlns:tns="http://endpoints.mahendra.com" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://endpoints.mahendra.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="findByEmail" qname="operNS:findByEmail" xmlns:operNS="http://endpoints.mahendra.com" returnQName="retNS:findByEmailReturn" xmlns:retNS="http://endpoints.mahendra.com" returnType="rtns:Customer" xmlns:rtns="http://models.mahendra.com" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://endpoints.mahendra.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="findByName findByEmail"/>
+
+      <typeMapping
+        xmlns:ns="http://endpoints.mahendra.com"
+        qname="ns:>findByNameResponse"
+        type="java:com.mahendra.endpoints.FindByNameResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://endpoints.mahendra.com"
+        qname="ns:>findByEmail"
+        type="java:com.mahendra.endpoints.FindByEmail"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://endpoints.mahendra.com"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://models.mahendra.com"
+        qname="ns:Customer"
+        type="java:com.mahendra.models.Customer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://endpoints.mahendra.com"
+        qname="ns:>findByEmailResponse"
+        type="java:com.mahendra.endpoints.FindByEmailResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://endpoints.mahendra.com"
+        qname="ns:>findByName"
+        type="java:com.mahendra.endpoints.FindByName"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

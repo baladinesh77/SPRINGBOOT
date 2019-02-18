@@ -7,6 +7,7 @@ import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 import org.springframework.ws.config.annotation.EnableWs;
 
 @SpringBootApplication
+
 public class BootDemo21Application {
 
 	public static void main(String[] args) {
