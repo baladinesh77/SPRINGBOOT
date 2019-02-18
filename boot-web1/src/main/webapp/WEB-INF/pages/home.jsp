@@ -8,5 +8,10 @@
 </head>
 <body>
 <h2>Welcome to Website</h2>
+<a href="customers/add-new">Add Customer</a>
+<form action="customers/find-by-name" method="get">
+	Name : <input type="text" name="name"/>
+	<input type="submit" value="search"/>
+</form>
 </body>
 </html>

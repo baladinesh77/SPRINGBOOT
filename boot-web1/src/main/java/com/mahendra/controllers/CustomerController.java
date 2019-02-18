@@ -34,7 +34,9 @@ public class CustomerController {
 	
 	@GetMapping("/add-new")
 	public String showForm(Model model) {
-		model.addAttribute("customer",new Customer());
+		Customer c = new Customer();
+		model.addAttribute("customer",c);
+		c.setPhoneNo("7572657245");
 		return "form";
 	}
 	
@@ -43,4 +45,7 @@ public class CustomerController {
 		service.save(customer);
 		return "redirect:/"; //Redirecting to HomeController
 	}
+	
+	//TWO MORE methods for EDIT functionality
+	
 }
