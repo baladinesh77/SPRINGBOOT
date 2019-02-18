@@ -1,6 +1,7 @@
 package com.mahendra.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,19 @@ public class CustomerServiceImpl implements CustomerService{
 	public void save(Customer customer) {
 		// TODO Auto-generated method stub
 		dao.save(customer);
+	}
+
+	@Override
+	public Customer findByEmail(String email) {
+		// TODO Auto-generated method stub
+		Optional<Customer> cust =dao.findByEmail(email);
+		return cust.get();
+	}
+
+	@Override
+	public void update(Customer customer) {
+		// TODO Auto-generated method stub
+		dao.update(customer);
 	}
 	
 }

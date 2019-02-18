@@ -47,5 +47,20 @@ public class CustomerController {
 	}
 	
 	//TWO MORE methods for EDIT functionality
+	@GetMapping("/edit")
+	public String editCustomer(@RequestParam String email, Model model) {
+		Customer customer = service.findByEmail(email);
+		System.out.println("Searching for email: "+email);
+		if(customer==null) {
+			return "redirect:/";
+		}
+		model.addAttribute("customer",customer);
+		return "form-edit";
+	}
 	
+	@PostMapping("/edit")
+	public String saveChanges(@ModelAttribute Customer customer) {
+		service.update(customer);
+		return "redirect:/";
+	}
 }

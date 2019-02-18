@@ -41,4 +41,28 @@ public class CustomerDAOListImpl implements CustomerDAO {
 		customers.add(customer);
 	}
 
+	@Override
+	public Optional<Customer> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return customers
+					.stream()
+					.filter((x)
+						->x.getEmail().equalsIgnoreCase(email))
+					.findFirst();
+	}
+
+	@Override
+	public void update(Customer customer) {
+		String email = customer.getEmail();
+		Optional<Customer> cust = findByEmail(email);
+		if(!cust.isPresent()) {
+			throw new RuntimeException("No record found!");
+		}
+		Customer oldCustomer = cust.get();
+		oldCustomer.setFirstName(customer.getFirstName());
+		oldCustomer.setLastName(customer.getLastName());
+		oldCustomer.setPhoneNo(customer.getPhoneNo());
+	}
+
+	
 }
