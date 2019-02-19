@@ -1,9 +1,13 @@
 package com.mahendra;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mahendra.models.Customer;
@@ -20,5 +24,13 @@ public class CustomerController {
 					MediaType.APPLICATION_XML_VALUE})
 	public Customer find(@PathVariable("id") Integer id) {
 		return service.find(id);
+	}
+	
+	@RequestMapping(value="/create",
+			method=RequestMethod.POST,
+			consumes= {"application/json","application/xml"})
+	public ResponseEntity<String> save(@RequestBody Customer customer){
+		service.save(customer);
+		return new ResponseEntity<String>("Created!",HttpStatus.CREATED);
 	}
 }
