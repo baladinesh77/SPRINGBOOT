@@ -22,8 +22,17 @@ public class CustomerController {
 	@RequestMapping(value="/find-by-id/{id}",
 			produces= {MediaType.APPLICATION_JSON_VALUE,
 					MediaType.APPLICATION_XML_VALUE})
-	public Customer find(@PathVariable("id") Integer id) {
-		return service.find(id);
+	public ResponseEntity<Customer> find(@PathVariable("id") Integer id) {
+		Customer customer = null;
+		try {
+		service.find(id);
+		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return new ResponseEntity<Customer>(HttpStatus.NO_CONTENT);
+		}
+		
 	}
 	
 	@RequestMapping(value="/create",
