@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.remoting.jaxws.SimpleHttpServerJaxWsServiceExporter;
+import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
@@ -27,9 +29,17 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean("customer")
 	public SimpleWsdl11Definition wsdl() {
-		SimpleWsdl11Definition wsdl = new SimpleWsdl11Definition();
-		wsdl.setWsdl(new ClassPathResource("wsdl/CustomerServiceEndpoint.wsdl"));
+		SimpleWsdl11Definition wsdl = 
+			new SimpleWsdl11Definition(
+			 new ClassPathResource
+			 ("wsdl/CustomerServiceEndpoint.wsdl")
+			 );
 		return wsdl;
 	}
 	
+	@Bean
+	public SimpleHttpServerJaxWsServiceExporter exporter() {
+		SimpleHttpServerJaxWsServiceExporter exp = new SimpleHttpServerJaxWsServiceExporter();
+		return exp;
+	}
 }
