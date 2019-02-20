@@ -8,15 +8,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mahendra.entities.Continent;
 import com.mahendra.entities.Country;
 import com.mahendra.services.CountryService;
 
 @SpringBootApplication
+@EnableTransactionManagement
 public class BootHibernate1Application implements CommandLineRunner{
 
 	@Autowired private CountryService service;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BootHibernate1Application.class, args);

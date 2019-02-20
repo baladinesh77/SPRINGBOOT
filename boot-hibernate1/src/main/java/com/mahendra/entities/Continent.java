@@ -1,5 +1,7 @@
 package com.mahendra.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,9 @@ public class Continent {
 	
 	@Column(name="name",length=20)
 	private String name;
+	
+	//@OneToMany(mappedBy="continent")
+	//private List<Country> countries;
 
 	public Continent(Integer id, String name) {
 		super();

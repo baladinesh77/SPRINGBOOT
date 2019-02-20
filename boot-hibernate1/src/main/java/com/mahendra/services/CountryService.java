@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +32,12 @@ public class CountryService {
 		return country.get();
 	}
 	
+	@Transactional
 	public void save(Continent continent) {
 		dao2.save(continent);
 	}
 	
+	@Transactional
 	public void save(Country country) {
 		Country c =dao.save(country);
 		System.out.println("New country created: "+c.getId());
