@@ -9,13 +9,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mahendra.ContinentDAO;
 import com.mahendra.dao.CountryDAO;
+import com.mahendra.entities.Continent;
 import com.mahendra.entities.Country;
 
 @Service
 public class CountryService {
 	@Autowired
 	private CountryDAO dao;
+	@Autowired
+	private ContinentDAO dao2;
+	
 	
 	public Country findById(Integer id) {
 		Optional<Country> country= dao.findById(id);
@@ -23,6 +28,10 @@ public class CountryService {
 			throw new RuntimeException("Country not found!");
 		}
 		return country.get();
+	}
+	
+	public void save(Continent continent) {
+		dao2.save(continent);
 	}
 	
 	public void save(Country country) {

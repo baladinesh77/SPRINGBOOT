@@ -13,8 +13,13 @@ public class Country {
 	private String name;
 	@Column(name="c_city",length=20)
 	private String capital;
-	@Column(name="continent",length=15)
-	private String continent;
+
+	@ManyToOne
+	private Continent continent;
+	/*
+	 * @Column(name="continent",length=15) 
+	 * private String continent;
+	 */
 	public Integer getId() {
 		return id;
 	}
@@ -33,17 +38,18 @@ public class Country {
 	public void setCapital(String capital) {
 		this.capital = capital;
 	}
-	public String getContinent() {
+
+	public Continent getContinent() {
 		return continent;
 	}
-	public void setContinent(String continent) {
+	public void setContinent(Continent continent) {
 		this.continent = continent;
 	}
 	public Country() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Country(String name, String capital, String continent) {
+	public Country(String name, String capital, Continent continent) {
 		super();
 		this.name = name;
 		this.capital = capital;

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 
+import com.mahendra.entities.Continent;
 import com.mahendra.entities.Country;
 import com.mahendra.services.CountryService;
 
@@ -24,8 +25,13 @@ public class BootHibernate1Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Creating new countries");
-		Country c1 = new Country("India", "New Delhi", "Asia");
-		Country c2 = new Country("Nepal","Kathmandu","Asia");
+		
+		Continent cn = new Continent(1, "Asia");
+
+		service.save(cn);
+		
+		Country c1 = new Country("India", "New Delhi", cn);
+		Country c2 = new Country("Nepal","Kathmandu",cn);
 		
 		service.save(c1);
 		service.save(c2);
