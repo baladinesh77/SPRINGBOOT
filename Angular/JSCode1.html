@@ -2,12 +2,15 @@
 <html>
 <head>
 <script type="text/javascript">
+//Variable declarations without TYPE
+//functions without RETURN TYPE
 function doIt(x,y){
     return x + y;
 }
 function calc(frm){
-    n1 = frm.t1.value;
-    n2 = frm.t2.value;
+    //Access HTML DOM Objects
+    n1 = parseInt(frm.t1.value);
+    n2 = parseInt(frm.t2.value);
     frm.ans.value = doIt(n1,n2);
 }
 </script>
