@@ -11,7 +11,9 @@ function calc(frm){
     //Access HTML DOM Objects
     n1 = parseInt(frm.t1.value);
     n2 = parseInt(frm.t2.value);
-    frm.ans.value = doIt(n1,n2);
+    n3 = doIt(n1,n2);
+    frm.ans.value =n3;
+    alert(n3);
 }
 </script>
 </head>
