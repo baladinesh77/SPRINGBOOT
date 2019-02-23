@@ -23,19 +23,16 @@ export class AppComponent {
 }
 
 ### html template
-<form >
-	<div>
-		<div >
-			New Client:  <input #newClient><br/>
-			<button (click)="addClient(newClient.value)">Add</button>
-			<div >
-				<ul >
-					<li (click)="onClick(client)" 
-                    *ngFor="let client of clients" class="list-group-item">
-						<h4>{{client}}</h4>
-					</li>
-				</ul>
-			</div>
-		</form>
+	New Client:  <input #newClient><br/>
+	<button (click)="addClient(newClient.value)">Add</button>
+	<div >
+		<ul >
+			<li (click)="onClick(client)" 
+                *ngFor="let client of clients" class="list-group-item">
+			<h4>{{client}}</h4>
+			</li>
+		</ul>
+		</div>
+
 
 
