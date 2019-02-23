@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <table class=" list-group actorlist">
+    <!-- for(var item: actors)
+        Angular directives use TypeScript code
+    -->
+    <tr *ngFor="let x of actors" 
+        class="list-group-item">  
+        <td>{{x.name}}</td>
+        <td>{{x.awards}}</td>
+        <td>{{x.bio}}</td>
+        <td>{{x.shortname}}</td>
+    </tr>
+  </table>
+          New Client:  <input #newClient><br/>
+          <button (click)="addClient(newClient.value)">Add</button>
+            <ul >
+              <li (click)="onClick(client)" 
+                        *ngFor="let client of clients" class="list-group-item">
+                <h4>{{client}}</h4>
+              </li>
+            </ul>   
+  </div>
+
+
+<router-outlet></router-outlet>
