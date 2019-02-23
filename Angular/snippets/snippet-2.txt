@@ -1,0 +1,41 @@
+## Input fields
+
+## Component.ts
+
+export class AppComponent {
+    private name:string;
+    private clients:any;
+
+    constructor(){
+        this.name="Mahendra Shinde";
+        this.clients=['Cognizant','Wipro','Godrej','CapGemini'];
+    }
+
+    onClick(client){
+        alert("You selected "  + client);
+    }
+
+    addClient(client){
+        if(client.trim()!=""){
+            this.clients.push(client);
+        }
+    }
+}
+
+### html template
+<form >
+	<div>
+		<div >
+			New Client:  <input #newClient><br/>
+			<button (click)="addClient(newClient.value)">Add</button>
+			<div >
+				<ul >
+					<li (click)="onClick(client)" 
+                    *ngFor="let client of clients" class="list-group-item">
+						<h4>{{client}}</h4>
+					</li>
+				</ul>
+			</div>
+		</form>
+
+
