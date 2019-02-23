@@ -1,0 +1,103 @@
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h3>New employee</h3>
+        <form [formGroup]="form" (submit)="register()" class="form-horizontal" novalidate>
+            <div class="form-group">
+                <label class="control-label col-sm-2">First name</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="firstName" class="form-control" />
+                    <div class="text-danger" *ngIf="form.controls.firstName.touched && form.controls.firstName.hasError('required')">First name is required</div>
+                    <div class="text-danger" *ngIf="form.controls.firstName.touched && form.controls.firstName.hasError('minlength')">First name must have at least 3 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Last name</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="lastName" class="form-control" />
+                    <div class="text-danger" *ngIf="form.controls.lastName.touched && form.controls.lastName.hasError('required')">Last name is required</div>
+                    <div class="text-danger" *ngIf="form.controls.lastName.touched && form.controls.lastName.hasError('minlength')">Last name must have at least 3 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="email" class="form-control" />
+                    <div class="text-danger"
+                         *ngIf="form.controls.email.touched && form.controls.email.hasError('required')">
+                        Email is required
+                    </div>
+                    <div class="text-danger"
+                         *ngIf="form.controls.email.touched && form.controls.email.hasError('pattern')">
+                        Invalid email format
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <input type="checkbox"
+                           formControlName="isFulltime"/> Full time employee
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Payment type</label>
+                <div class="col-sm-10">
+                    <input type="radio" formControlName="payType" value="W2" /> W2
+                    <input type="radio" formControlName="payType" value="1099"/> 1099
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Language</label>
+                <div class="col-sm-10">
+                    <select formControlName="language" class="form-control">
+                        <option value="">Select a language</option>
+                        <option *ngFor="let lang of languages" value="{{lang.code}}">
+                            {{lang.name}}
+                        </option>
+                    </select>
+                    <div class="text-danger"
+                         *ngIf="form.controls.language.touched &&form.controls.language.hasError('required')">
+                        Language is required
+                    </div>
+                </div>
+            </div>
+            <div formGroupName="address">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="city" class="form-control" />
+                        <div class="text-danger"
+                             *ngIf="form.controls.address.controls.city.touched &&
+                             form.controls.address.controls.city.hasError('required')">
+                            City is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Country</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="country" class="form-control" />
+                        <div class="text-danger"
+                             *ngIf="form.controls.address.controls.country.touched &&
+                             form.controls.address.controls.country.hasError('required')">
+                            Country is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+            <div>
+                Form value:{{form.value | json}}<br/>
+                First name touched:{{form.controls.firstName.touched}} <br/>
+                First name untouched:{{form.controls.firstName.untouched}} <br/>
+                First name valid:{{form.controls.firstName.valid}} <br/>
+                First name invalid:{{form.controls.firstName.invalid}} <br/>
+                First name dirty:{{form.controls.firstName.dirty}} <br/>
+                First name pristine:{{form.controls.firstName.pristine}} <br/>
+            </div>
+
+        </form>
+    </div>
+</div>

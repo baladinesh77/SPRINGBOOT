@@ -1,0 +1,13 @@
+<div>
+	<p>String: Hello</p>
+	<p>Reversed string: {{'hello'|reverse}}</p>
+</div>
+<div>
+	<label>Search Text</label>
+	<input type="text" [(ngModel)]="searchText">
+	<ul>
+		<li *ngFor="let item of contacts|startsWith:searchText:'name'">
+			{{item.name}} - {{item.mobile}}
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,13 @@
+
+<h3>List of Data using JSON pipe</h3>
+<p>{{data | json}}</p>
+
+<h3>Uppercase, Lowercaseand Custom pipes</h3>
+<ul>
+    <li *ngFor="let p of data">{{p.name | uppercase}} ({{p.name | lowercase}}) ({{p.name|initcap}})</li>
+</ul>
+
+<h3>Date filter</h3>
+<p>Without pipe: {{today}}</p>
+<p>With pipe (without formatter): {{today|date}}</p>
+<p>With pipe (with formatter): {{today|date:"MM/dd/yyyy"}}</p>

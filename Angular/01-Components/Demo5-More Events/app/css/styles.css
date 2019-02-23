@@ -1,0 +1,12 @@
+body{
+	background-color: lightgoldenrodyellow;
+}
+
+.clientlist li:hover{
+	background-color: #E9DC51;
+	cursor:pointer;
+
+}
+.clientlist li:active {
+	transform: scale(1.01);
+}

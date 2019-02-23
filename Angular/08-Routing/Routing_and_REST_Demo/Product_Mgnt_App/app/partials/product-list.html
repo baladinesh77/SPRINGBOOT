@@ -1,0 +1,25 @@
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th></th>
+			</tr>
+			<tr *ngFor="let item of products">
+				<td>{{item.Id}}</td>
+				<td>{{item.Name}}</td>
+				<td>{{item.Price}}</td>
+				<td>{{item.Quantity}}</td>
+				<td>
+					<a [routerLink]="['/detail',item.Id]" >More...</a> |
+					<a [routerLink]="['/info',{id:item.Id, name:item.Name}]" >Info...</a> |
+					<a style="cursor: pointer" (click)="navigate(item.Id)">Rating</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

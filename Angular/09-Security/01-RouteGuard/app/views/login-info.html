@@ -1,0 +1,5 @@
+<ul class="nav navbar-nav navbar-right" *ngIf="identity">
+    <li><a href="#" *ngIf="identity.isAuthenticated">Welcome {{identity.usrename}}</a> </li>
+    <li><a routerLink="login" *ngIf="!identity.isAuthenticated">Login</a> </li>
+    <li><a routerLink="login" (click)="logoff()" *ngIf="identity.isAuthenticated">Logoff</a> </li>
+</ul>

@@ -1,0 +1,13 @@
+<div class="col-sm-4 thumbnail thumbnail-padding">
+    <h3>{{index+1}}: {{event.Name}}
+        <span class="badge" *ngIf="event.Price<3000">Offer</span>
+    </h3>
+    <div>Location: {{event.Location | uppercase}}</div>
+    <div>Price: {{event.Price|currency:currencyCode:true:'1.2-3'}} </div>
+    <div>Date: {{event.EventDate}}</div>
+    <div>Time: {{event.EventTime}}</div>
+    <button type="button" class="btn" 
+        (click)="register()"
+        [ngClass]="{'btn-success':event.Price<3000, 'btn-primary':event.Price>3000}">
+        Register</button>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<form>
+			<div class="form-group">
+				<label class="control-label">Name</label>
+				<input type="text" [(ngModel)]="name" name="name" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Email</label>
+				<input type="email" [(ngModel)]="email" name="email" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Address</label>
+				<textarea [(ngModel)]="address" name="address" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Gender</label>
+				<input type="radio" [(ngModel)]="gender" value="male" name="gender" id="male" /> Male
+				<input type="radio" [(ngModel)]="gender" value="female" name="gender" id="female"/> Female
+			</div>
+			<div class="form-group">
+				<input type="checkbox" [(ngModel)]="agree" name="agree" /> I agree the terms and conditions
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" (click)="register()">Register</button>
+			</div>
+		</form>
+	</div>
+</div>

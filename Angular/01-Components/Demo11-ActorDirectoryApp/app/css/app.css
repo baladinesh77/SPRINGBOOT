@@ -1,0 +1,24 @@
+.actorlist li:hover{
+	background-color: #E9DC51;
+	cursor:pointer;
+	transform: scale(1.03);
+}
+.actorlist li:active {
+	transform: scale(1.02);
+}
+
+.thumbnail-image{
+	width:75px;
+	height:75px;
+	float: left;
+	margin-right: 10px;
+}
+.big_thumbnail{
+	width:150px;
+	height: 150px;
+
+}
+.info{
+	padding: 5px;
+	margin-left: 10px;
+}

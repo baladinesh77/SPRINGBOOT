@@ -1,0 +1,1 @@
+{"version":3,"file":"decimalPipe.component.js","sourceRoot":"","sources":["../ts/decimalPipe.component.ts"],"names":[],"mappings":";;;;;;;;;;AAEA,qBAAwB,eAAe,CAAC,CAAA;AAUxC;IAAA;QACC,OAAE,GAAW,KAAK,CAAC;QACnB,MAAC,GAAW,iBAAiB,CAAC;IAC/B,CAAC;IAZD;QAAC,gBAAS,CAAC;YACV,QAAQ,EAAE,gBAAgB;YAC1B,QAAQ,EAAE,uNAKA;SACV,CAAC;;+BAAA;IAIF,8BAAC;AAAD,CAAC,AAHD,IAGC;AAHY,+BAAuB,0BAGnC,CAAA"}

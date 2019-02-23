@@ -1,0 +1,9 @@
+<div class="myContent">
+	<h1>{{name}}</h1>
+	<ul class="clientlist">
+		<li *ngFor="let client of clients">
+			<h3>{{client.name}}</h3>
+			<p>{{client.location}}</p>
+		</li>
+	</ul>
+</div>

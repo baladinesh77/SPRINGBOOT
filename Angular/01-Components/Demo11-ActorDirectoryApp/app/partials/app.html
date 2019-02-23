@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>{{name}}</h1>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label >Search <span *ngIf="query">for '{{query}}'</span></label>
+				<input class="form-control"
+					   [(ngModel)]="query"
+					   placeholder="Type to search">
+
+			</div>
+			<div class="form-group" *ngIf="query">
+				<ul class=" list-group actorlist">
+					<li (click)="showDetails(item);query=''" *ngFor="let item of (actors)|find:query" class="list-group-item">
+						<actor-item [actor]=item></actor-item>
+					</li>
+				</ul>
+			</div>
+			<div class="form-group" *ngIf="currentActor">
+				<actor-details [actor]=currentActor></actor-details>
+			</div>
+		</form>
+	</div>
+</div>

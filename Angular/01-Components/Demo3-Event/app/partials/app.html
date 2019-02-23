@@ -1,0 +1,9 @@
+<div class="myContent">
+	<h1>{{name}}</h1>
+	<h4>Favorite Client:{{favorite}}</h4>
+	<ul class="clientlist">
+		<li (click)="onClick(client)" *ngFor="let client of clients">
+			<h3>{{client}}</h3>
+		</li>
+	</ul>
+</div>

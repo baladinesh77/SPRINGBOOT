@@ -1,0 +1,14 @@
+<div class="col-md-3 thumbnail thumbnail-padding">
+    <h4>{{event.name}}</h4>
+    <div>Location:{{event.location}}</div>
+    <div>Date:{{event.date}}</div>
+    <div>Time:{{event.time}}</div>
+    <div [ngStyle]="{'color':discountColor(),'font-weight':event.price<200?'bold':'normal'}">
+        Price: \${{event.price}}
+        <span class="badge" *ngIf="event.price<200">Offer</span>
+    </div>
+    <button type="button" class="btn" 
+        [ngClass]="{'btn-success':event.price<200, 'btn-primary':event.price>=200}" 
+        (click)="register()">Register</button>
+</div>
+ 

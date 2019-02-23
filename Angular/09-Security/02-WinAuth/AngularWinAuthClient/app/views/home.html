@@ -1,0 +1,7 @@
+<div class="row">
+    <h4>Status as on {{today | date:"shortDate"}}</h4>
+    <event-thumbnail *ngFor="let ev of data;let i=index" 
+    [event]="ev" 
+    [index]="i"
+    (clickEvent)="Clicked($event)"></event-thumbnail>
+</div>

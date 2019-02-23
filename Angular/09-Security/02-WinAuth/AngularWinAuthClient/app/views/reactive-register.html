@@ -1,0 +1,64 @@
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h3>Add New Event</h3>
+        <form class="form-horizontal" novalidate [formGroup]="model" (submit)="register()">
+            <div class="form-group">
+                <label class="control-label col-sm-2">Event name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="name"/>  
+                    <div class="text-danger"
+                     *ngIf="model.controls.name.touched && model.controls.name.hasError('required')">
+                     Name is required</div>                                   
+                    <div class="text-danger"
+                     *ngIf="model.controls.name.touched && model.controls.name.hasError('pattern')">
+                     Name must have at least 3 characters</div>                                   
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Location</label>
+                <div class="col-sm-10">
+                    <select class="form-control" formControlName="location">
+                        <option value="">Select location</option>
+                        <option *ngFor="let loc of locations" value="{{loc.value}}">{{loc.name}}</option>
+                    </select>    
+                    <div class="text-danger"
+                     *ngIf="model.controls.location.touched && model.controls.location.hasError('required')">
+                     Location is required</div>             
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Price name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="price" />   
+                    <div class="text-danger"
+                     *ngIf="model.controls.price.touched && model.controls.price.hasError('required')">
+                     Price is required</div>             
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Date</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="date">     
+                    <div class="text-danger"
+                     *ngIf="model.controls.date.touched && model.controls.date.hasError('required')">
+                     Date is required</div>         
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Time</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="time"> 
+                    <div class="text-danger"
+                     *ngIf="model.controls.time.touched && model.controls.time.hasError('required')">
+                     Time is required</div>              
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" [disabled]="model.invalid" class="btn btn-primary">Create</button>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

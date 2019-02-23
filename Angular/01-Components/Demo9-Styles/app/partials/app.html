@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>{{name}}</h1>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon">New Client</div>
+					<!-- (input) event is for updating clientName variable with the typed value -->
+					<input class="form-control"
+						 [(ngModel)]="clientName"
+						 (keyup.enter)="addClient(clientName);"
+						 (blur)="addClient(clientName)">
+				</div>
+				<!--<label *ngIf="clientName" class="control-label">{{"Name:" + clientName}}</label>-->
+				<!--<label *ngIf="clientName" class="control-label" bind-innerHTML="'Name:' + clientName"></label>-->
+				<label *ngIf="clientName" class="myLabel" [innerHTML]="'Name:' + clientName"></label>
+			</div>
+			<div class="form-group">
+				<button (click)="addClient(clientName)" class="btn btn-primary">Add</button>
+			</div>
+			<div class="form-group">
+				<ul class=" list-group clientlist">
+					<li (click)="onClick(client)" *ngFor="let client of clients" class="list-group-item">
+						<h4>{{client}}</h4>
+					</li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>

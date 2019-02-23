@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-group">
+			<label class="control-label">Name</label>
+			<input type="text" class="form-control" [(ngModel)]="newUser.name"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Email</label>
+			<input type="email" class="form-control" [(ngModel)]="newUser.email"/>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn btn-primary" (click)="showUser()">Show</button>
+		</div>
+	</div>
+</div>

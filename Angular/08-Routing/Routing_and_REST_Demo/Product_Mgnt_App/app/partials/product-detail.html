@@ -1,0 +1,15 @@
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h3>Product detail page</h3>
+		<a [routerLink]="['spec']">Specifications</a> | <!-- detail/101/spec -->
+		<a [routerLink]="['gallery']">Gallery</a> <!-- detail/101/gallery -->
+		<ul class="list-group" *ngIf="product">
+			<li class="list-group-item">Id:{{product.Id}}</li>
+			<li class="list-group-item">Name:{{product.Name}}</li>
+			<li class="list-group-item">Price:{{product.Price}}</li>
+			<li class="list-group-item">Quantity:{{product.Quantity}}</li>
+		</ul>
+		<router-outlet></router-outlet>
+	</div>
+</div>
