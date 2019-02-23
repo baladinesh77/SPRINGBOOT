@@ -15,7 +15,7 @@ import com.mahendra.models.Customer;
 import com.mahendra.services.CustomerService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 @RequestMapping("/customers")
 public class CustomerController {
 
