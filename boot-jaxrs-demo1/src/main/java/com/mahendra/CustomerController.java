@@ -25,7 +25,7 @@ public class CustomerController {
 	public ResponseEntity<Customer> find(@PathVariable("id") Integer id) {
 		Customer customer = null;
 		try {
-		service.find(id);
+		customer = service.find(id);
 		return new ResponseEntity<Customer>(customer,HttpStatus.OK);
 		}
 		catch(Exception ex) {
